@@ -125,7 +125,7 @@ If you'd rather it just return false in your checks, use the following option:
 
 ## Tests
 
-`make test`
+./node_modules/mocha/bin/mocha test/theTests.js
 
 ## Want to contribute?
 
