@@ -1,6 +1,6 @@
 {
   "name": "user-is",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Role-based authentication",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/SuchSoftware/node-user-is/issues"
   },
-  "homepage": "https://github.com/SuchSoftware/node-user-is",
+  "homepage": "http://www.suchsoftware.com/projects/user-is",
   "devDependencies": {
     "mocha": "^2.2.4"
   },
