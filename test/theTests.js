@@ -5,15 +5,21 @@ function isAdmin(user, cb) {
   cb(null, user && user.isAdmin)
 }
 
+function isUser(user, cb) {
+  cb(null, true)
+}
+
 describe('Having defined an admin role', function() {
   var accessDefs
 
   var roleFuncs = {
     'admin': isAdmin
+  , 'user': isUser
   }
 
   var actionDefs = {
     'add new user': ['admin']
+  , 'do something else': ['admin', 'user']
   }
 
   var options = {
@@ -40,6 +46,15 @@ describe('Having defined an admin role', function() {
       userIs.ableTo('add new user', function(err, isAble) {
         assert.ifError(err)
         assert(!isAble)
+
+        done()
+      })
+    })
+
+    it('should let the user do something else (handles multiple roles for same action)', function(done) {
+      userIs.ableTo('do something else', function(err, isAble) {
+        assert.ifError(err)
+        assert(isAble)
 
         done()
       })

@@ -4,7 +4,7 @@ var async = require('async')
 
 module.exports = UserIs
 
-var missingDefinitionError = 'E_MISSINGDEFINITION'
+var missingDefinitionErrorCode = 'E_MISSINGDEFINITION'
 var notAuthorizedErrorCode = 'E_NOTAUTHORIZED'
 var userNotFoundErrorCode = 'E_USERNOTFOUND'
 
@@ -23,7 +23,7 @@ function UserIs(roleFuncs, actionDefinitions, options) {
       if (!rolesThatCan) {
         if (options.errorOnMissingDefinitions) {
           var error = new Error('You have not supplied a definition for action' + action)
-          error.code = missingDefinitionError
+          error.code = missingDefinitionErrorCode
 
           cb(error, false)
         } else {
@@ -56,7 +56,7 @@ function UserIs(roleFuncs, actionDefinitions, options) {
       if (!roleCheck) {
         if (options.errorOnMissingDefinitions) {
           var error = new Error('You have not supplied a definition for role ' + role)
-          error.code = missingDefinitionError
+          error.code = missingDefinitionErrorCode
 
           cb(error, false)
         } else {
@@ -107,3 +107,4 @@ function UserIs(roleFuncs, actionDefinitions, options) {
 
 UserIs.notAuthorizedErrorCode = notAuthorizedErrorCode
 UserIs.userNotFoundErrorCode = userNotFoundErrorCode
+UserIs.missingDefinitionErrorCode = missingDefinitionErrorCode
